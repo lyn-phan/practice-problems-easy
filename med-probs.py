@@ -1,7 +1,8 @@
+     """ take in two arrays, where you take in several numbers from array B and add them to array A. Find
+    the maximum length of the resulting arithmetic progression for array A """
+
 
 # def max_arithmetic_seq(a, b):
-#     """ take in two arrays, where you take in several numbers from array B and add them to array A. Find
-#     the maximum length of the resulting arithmetic progression for array A """
 
 #     differences = set()
 
@@ -34,10 +35,10 @@
 
 
 ##############################################################
+     """Given a square matrix of positive integers, sort thr number in each of its diagonals parallel to the secondary diagonal.
+     Each diagonal should contain the same set of numbers as before but sorted in ascending order from the bottom-left to top-right"""
 
 #     def secondary_diagonal(matrix):
-#     """Given a square matrix of positive integers, sort thr number in each of its diagonals parallel to the secondary diagonal.
-#     Each diagonal should contain the same set of numbers as before but sorted in ascending order from the bottom-left to top-right"""
 
 #     #R   0  1  2  3  --> C 
 #     #0  [1, 3, 9, 4]
@@ -104,7 +105,7 @@
 
 ##############################################################
 
-# Task: group arrays by their means in ascending order 
+""" Task: group arrays by their means in ascending order """
 
 # For
 # a = [[3, 3, 4, 2], #mean = 3
@@ -142,3 +143,4 @@
 #     return sorted(list(averages.values()))
 
 # print(meanGroups(a = [[3, 3, 4, 2], [4, 4], [4, 0, 3, 3], [2, 3], [3, 3, 3]] ))
+
