@@ -55,3 +55,42 @@
 
 
 # print(candies(n = 3, m = 10))
+
+""" given a theatre with nCols, and nRows. And given your seat at col, row - find the area
+behind your seat, assuming all seats are taken """
+# For nCols = 16, nRows = 11, col = 5, and row = 3, the output should be
+# seatsInTheater(nCols, nRows, col, row) = 96.
+
+#by hand:
+# nCols - (col -1) * nRows - row
+# def seatsInTheater(nCols, nRows, col, row):
+#     area = (nCols - (col-1)) * (nRows - row)
+
+#     return area
+
+# print(seatsInTheater(nCols = 16, nRows = 11, col = 5, row = 3))
+
+"""Given a divisor and a bound, find the largest integer N such that:
+
+N is divisible by divisor.
+N is less than or equal to bound.
+N is greater than 0."""
+
+# def maxMultiple(divisor, bound):
+#     return bound - (bound % divisor)
+
+# print(maxMultiple(divisor = 3, bound = 10))
+
+# def fizzBuzz(n):
+#     for i in range(n + 1):
+#         if (i % 3 == 0) and (i % 5 == 0):
+#             print("FizzBuzz")
+#         elif (i % 3 == 0) and (i % 5 != 0):
+#             print("Fizz")
+#         elif (i % 3 != 0) and (i % 5 == 0):
+#             print("Buzz")
+#         else:
+#            if i % 3 != 0 or i % 5 != 0:
+#                print(i)
+
+# print(fizzBuzz(n = 15))
