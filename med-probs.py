@@ -227,3 +227,8 @@
 #   return not stack
 
 # print(balancedBrackets(('[{}]', '[]')))
+
+"""return a spiral matrix """ 
+
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
