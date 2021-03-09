@@ -35,7 +35,7 @@
 
 
 ##############################################################
-     """Given a square matrix of positive integers, sort thr number in each of its diagonals parallel to the secondary diagonal.
+     """Given a square matrix of positive integers, sort the number in each of its diagonals parallel to the secondary diagonal.
      Each diagonal should contain the same set of numbers as before but sorted in ascending order from the bottom-left to top-right"""
 
 #     def secondary_diagonal(matrix):
@@ -144,3 +144,86 @@
 
 # print(meanGroups(a = [[3, 3, 4, 2], [4, 4], [4, 0, 3, 3], [2, 3], [3, 3, 3]] ))
 
+""" arrange the words hacker rank"""
+
+# def arrange(sentence):
+#     word_counts = {}
+#     len_of_word = 0
+#     sentence_list = []
+
+#     for i in sentence.split():
+#         count = len(i)
+#         len_of_word += count
+#         word_counts[i] = count
+#         sorted_dict = sorted(word_counts.items(), key=lambda x:x[1])
+    
+#     for i in sorted_dict:
+#         sentence_list.append(i[0])
+#         return ''.join(str(sentence_list))
+
+# print(arrange("I love to code"))
+
+
+# def braces(values):
+#     open_list = ("(", "[", "{")
+#     closed_list = (")", "]", "}")
+    
+#     balanced = {open_list[0]:closed_list[0],
+#     open_list[1]:closed_list[1],
+#     open_list[2]:closed_list[2]}
+    
+#     stack = []
+    
+#     for i in values:
+#         if stack:
+#             if i in open_list:
+#                 stack.append(i)
+#             elif i in closed_list:
+#                 index = closed_list.index[i]
+#                 if len(stack) > 0 and stack[-1] == open_list[index]:
+#                     stack.pop()
+#         elif not stack:
+#             return "No"
+#         return "Yes" 
+
+
+# print(braces(['[{}]', '[]']))
+
+# def brackets(expression):
+#    all_br = ['()', '{}', '[]']
+#    while any(x in expression for x in all_br):
+#       for br in all_br:
+#          expression = expression.replace(br, '')
+#    return not expression
+
+# # calling the function
+# input_string = "([]{}()"
+# if brackets(input_string):
+#    print(input_string,"balanced")
+# else:
+#    print(input_string,"Not balanced")
+
+# brackets = {
+#   '(': ')',
+#   '{': '}',
+#   '[': ']'
+# }
+
+# On each input string, process it using the balance checker
+# def balancedBrackets(string):
+#   stack = []
+#   # Process every character on input
+#   for char in string:
+#     # Assign an initial value in case the stack is empty
+#     last = 0
+#     # Assign the value of the last element if stack is not empty
+#     if stack:
+#       last = stack[len(stack) - 1]
+#     if stack and last in brackets and brackets[last] == char:
+#       stack.pop()
+#     else:
+#       stack.append(char)
+
+#   return not stack
+
+# print(balancedBrackets(('[{}]', '[]')))

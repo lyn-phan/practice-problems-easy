@@ -94,3 +94,119 @@ N is greater than 0."""
 #                print(i)
 
 # print(fizzBuzz(n = 15))
+
+""" design a game of black jack """
+
+# Is this for one player vs the computer? 
+# Will I need to design for multiple games or just one game?
+# can I use random module?
+
+# score = 0 # track score
+
+# create functions to:
+# - greet a player
+# - deal a card
+# - hit or stop
+# - play game
+
+""" Given n and firstNumber, find the number which is written in the radially opposite position to firstNumber. """
+
+# def circleOfNumbers(n, firstNumber):
+
+# #     # take n - 1 and assign list from 0 to n - 1
+# #     # lst = [x for x in range(0, n)]
+     
+# #     # length = len(lst)
+# #     # diff = length // 2
+
+# #     # result = firstNumber + diff
+# #     # return result
+#     return (firstNumber + n/2)%n
+# #     7 + 10/2 = 12 % 10
+# #     2 + 10/2 = 7 % 10
+# #     5 + 18/2 = 14 % 10
+
+# # print(circleOfNumbers(10, 7))
+# print(circleOfNumbers(10, 2))
+# print(circleOfNumbers(18, 5))
+# # print(12%10)
+# # print(7%10)
+# # print(14%10)
+
+# def lateRide(n):
+#     hours = n//60 
+#     minutes = n % 60
+
+#     time_format = list(f"{hours}{minutes}")
+    
+#     total = 0
+#     for i in range(0, len(time_format)):
+#         total += int(time_format[i])
+    
+#     return total
+
+
+# print(lateRide(808))
+
+
+# def phoneCall(min1, min2_10, min11, s):
+#     if s < min1:
+#         return 0
+#     # for i in range(2, 11):
+#     #     if s < min1 + min2_10 * (i - 1):
+#     #         return i - 1
+#     return (s - min1 - min2_10 * 9.0) // min11 + 10
+
+# print(phoneCall(min1 = 2, min2_10 = 2, min11 = 1, s = 24))
+
+
+    # minutes = 0
+
+    # first = s - min1 #22
+    # minutes += first #22
+
+    # second_ten = min2_10 * 9 # 18
+    # minutes = minutes - second_ten #4
+
+    # eleven_onward = minutes//min11 #4
+
+    # return 1 + second_ten + eleven_onward
+
+
+# def firstNotRepeatingCharacter(s):
+#     tuple_counter = ()
+
+#     for char in s:
+#         if char not in tuple_counter:
+#             tuple_counter[0] = char
+#             tuple_counter[0, 1] = 1
+#     return tuple_counter
+
+
+# print(firstNotRepeatingCharacter("ababac"))
+
+
+# def firstUniqChar(s):
+#     char_count = {}
+
+#     for i in s:
+#         char_count[i] = char_count.get(i, 0) + 1
+    
+#     return next((i for i in s if char_count[i] == 1), '__')
+
+
+# print(firstUniqChar("leetcode"))
+
+""" return first duplicate number for which the 2nd occurence has the minimal index""" 
+def firstDuplicate(a):
+    seen = set()
+
+    for i in a:
+        if i in seen:
+            return i
+        seen.add(i)
+    return -1
+
+print(firstDuplicate(a = [2, 1, 3, 5, 3, 2]))
+# 3
+        
