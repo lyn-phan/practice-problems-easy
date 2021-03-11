@@ -264,12 +264,18 @@ def spiralOrder(matrix):
                 left_most_unprinted_column += 1
                 current_operation == left_to_right
         
-        return TODO
+        return
 
 
 def printLeftToRight(matrix, top_unprinted_row, right_most_unprinted_column, left_most_unprinted_column):
     """print the top row of matrix"""
-    
+
+    for i in range(len(matrix)):
+        """return the first index of left_most and first index of right_most and everything in between top"""
+        return i
+
+
+
 
 
 print(spiralOrder(matrix = [[1,2,3],[4,5,6],[7,8,9]]))
