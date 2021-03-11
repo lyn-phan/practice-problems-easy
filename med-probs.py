@@ -230,55 +230,58 @@ Each diagonal should contain the same set of numbers as before but sorted in asc
 
 """return a spiral matrix """ 
 def spiralOrder(matrix):
-        # Boundaries:
-        top_unprinted_row = 0
-        right_most_unprinted_column =  len(matrix[0]) - 1   #2
-        bottom_unprinted_row = len(matrix) - 1    #2
-        left_most_unprinted_column = 0
+    a = len(matrix) #length is rows
+    b = len(matrix[0]) #length in columns
+    output = []
 
-        # Current operation:
-        left_to_right = 1
-        top_to_bottom = 2
-        right_to_left = 3
-        bottom_to_top = 4
-        current_operation == left_to_right
+    # Boundaries:
+    top_row = 0
+    right_column =  b - 1   
+    bottom_row = a - 1    
+    left_column = 0
 
-        while True:
-        # ** update boundaries
-        # ** update current operation
-        # ** when working with the row, range is column and vice versa
-            if current_operation == left_to_right:
-                printLeftToRight(matrix, top_unprinted_row, right_most_unprinted_column, left_most_unprinted_column)
-                top_unprinted_row += 1
-                current_operation == top_to_bottom
-            elif current_operation == top_to_bottom:
-                printTopToBottom(matrix, right_most_unprinted_column, top_unprinted_row, bottom_unprinted_row)
-                right_most_unprinted_column = right_most_unprinted_column - 1
-                current_operation == right_to_left
-            elif current_operation == right_to_left:
-                printRightToLeft(matrix, bottom_unprinted_row, right_most_unprinted_column, left_most_unprinted_column)
-                bottom_unprinted_row = bottom_unprinted_row - 1
-                current_operation == bottom_to_top
-            elif current_operation == bottom_to_top:
-                printBottomTop(matrix, left_most_unprinted_column, bottom_unprinted_row, top_unprinted_row)
-                left_most_unprinted_column += 1
-                current_operation == left_to_right
-        
-        return
+    # Current operation:
+    left_to_right = 1
+    top_to_bottom = 2
+    right_to_left = 3
+    bottom_to_top = 4
+    current_operation = left_to_right
+    seen = set()
+
+    while top_row <= bottom_row and left_column <= right_column:
+    # ** update boundaries
+    # ** update current operation
+    # ** when working with the row, range is column and vice versa
+        if current_operation == left_to_right:
+            printLeftToRight(matrix, top_row, right_column, left_column)
+            top_row += 1
+            current_operation = top_to_bottom
+        elif current_operation == top_to_bottom:
+            printTopToBottom(matrix, right_column, top_row, bottom_row)
+            right_column = right_column - 1
+            current_operation = right_to_left
+        elif current_operation == right_to_left:
+            printRightToLeft(matrix, bottom_row, right_column, left_column)
+            bottom_row = bottom_row - 1
+            current_operation = bottom_to_top
+        elif current_operation == bottom_to_top:
+            printBottomTop(matrix, left_column, bottom_row, top_row)
+            left_column += 1
+            current_operation = left_to_right
+    
+    # return
+
+# def printLeftToRight(matrix, top_unprinted_row, right_most_unprinted_column, left_most_unprinted_column):
+#     """print the top row of matrix"""
+
+#     for i in range(len(matrix)):
+#         """return the first index of left_most and first index of right_most and everything in between top"""
+#         return i
 
 
-def printLeftToRight(matrix, top_unprinted_row, right_most_unprinted_column, left_most_unprinted_column):
-    """print the top row of matrix"""
 
-    for i in range(len(matrix)):
-        """return the first index of left_most and first index of right_most and everything in between top"""
-        return i
-
-
-
-
-
-print(spiralOrder(matrix = [[1,2,3],[4,5,6],[7,8,9]]))
+# print(spiralOrder(matrix = [[1,2,3],[4,5,6],[7,8,9]]))
+print(spiralOrder(matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]))
 
 # Input: matrix = 
 # [[1,2,3]
