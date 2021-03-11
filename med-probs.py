@@ -1,4 +1,4 @@
-     """ take in two arrays, where you take in several numbers from array B and add them to array A. Find
+""" take in two arrays, where you take in several numbers from array B and add them to array A. Find
     the maximum length of the resulting arithmetic progression for array A """
 
 
@@ -35,8 +35,8 @@
 
 
 ##############################################################
-     """Given a square matrix of positive integers, sort the number in each of its diagonals parallel to the secondary diagonal.
-     Each diagonal should contain the same set of numbers as before but sorted in ascending order from the bottom-left to top-right"""
+"""Given a square matrix of positive integers, sort the number in each of its diagonals parallel to the secondary diagonal.
+Each diagonal should contain the same set of numbers as before but sorted in ascending order from the bottom-left to top-right"""
 
 #     def secondary_diagonal(matrix):
 
@@ -229,6 +229,65 @@
 # print(balancedBrackets(('[{}]', '[]')))
 
 """return a spiral matrix """ 
+def spiralOrder(matrix):
+        # Boundaries:
+        top_unprinted_row = 0
+        right_most_unprinted_column =  len(matrix[0]) - 1   #2
+        bottom_unprinted_row = len(matrix) - 1    #2
+        left_most_unprinted_column = 0
 
-class Solution:
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        # Current operation:
+        left_to_right = 1
+        top_to_bottom = 2
+        right_to_left = 3
+        bottom_to_top = 4
+        current_operation == left_to_right
+
+        while True:
+        # ** update boundaries
+        # ** update current operation
+        # ** when working with the row, range is column and vice versa
+            if current_operation == left_to_right:
+                printLeftToRight(matrix, top_unprinted_row, right_most_unprinted_column, left_most_unprinted_column)
+                top_unprinted_row += 1
+                current_operation == top_to_bottom
+            elif current_operation == top_to_bottom:
+                printTopToBottom(matrix, right_most_unprinted_column, top_unprinted_row, bottom_unprinted_row)
+                right_most_unprinted_column = right_most_unprinted_column - 1
+                current_operation == right_to_left
+            elif current_operation == right_to_left:
+                printRightToLeft(matrix, bottom_unprinted_row, right_most_unprinted_column, left_most_unprinted_column)
+                bottom_unprinted_row = bottom_unprinted_row - 1
+                current_operation == bottom_to_top
+            elif current_operation == bottom_to_top:
+                printBottomTop(matrix, left_most_unprinted_column, bottom_unprinted_row, top_unprinted_row)
+                left_most_unprinted_column += 1
+                current_operation == left_to_right
+        
+        return TODO
+
+
+def printLeftToRight(matrix, top_unprinted_row, right_most_unprinted_column, left_most_unprinted_column):
+    """print the top row of matrix"""
+    
+
+
+print(spiralOrder(matrix = [[1,2,3],[4,5,6],[7,8,9]]))
+
+# Input: matrix = 
+# [[1,2,3]
+# [4,5,6],
+# [7,8,9]]
+# Matrix[0] -> [1,2,3]
+# Matrix[0][0] -> 1
+# Matrix[0][1] -> 2
+# Ideas:
+# 4 types of operations: left->right, top->bottom, right->left, bottom->top
+# Do those operations in sequence, and start over if we still have more things to print
+# Need to keep track of “boundaries”: top unprinted row, right-most unprinted column, bottom unprinted row, left-most unprinted column
+# Once we finish an operation (eg. left->right), need to update the boundary
+# Output: [1,2,3,6,9,8,7,4,5]
+
+
+
+
