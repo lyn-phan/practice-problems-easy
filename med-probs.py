@@ -230,45 +230,90 @@ Each diagonal should contain the same set of numbers as before but sorted in asc
 
 """return a spiral matrix """ 
 def spiralOrder(matrix):
-    a = len(matrix) #length is rows
-    b = len(matrix[0]) #length in columns
+    r = len(matrix) #length is rows
+    col = len(matrix[0]) #length in columns
     output = []
 
     # Boundaries:
     top_row = 0
-    right_column =  b - 1   
-    bottom_row = a - 1    
+    right_column =  col - 1   
+    bottom_row = r - 1    
     left_column = 0
 
     # Current operation:
-    left_to_right = 1
-    top_to_bottom = 2
-    right_to_left = 3
-    bottom_to_top = 4
-    current_operation = left_to_right
+    # left_to_right = 1
+    # top_to_bottom = 2
+    # right_to_left = 3
+    # bottom_to_top = 4
+    # current_operation = left_to_right
     seen = set()
 
     while top_row <= bottom_row and left_column <= right_column:
+        
+        #traverse right
+        i = top_row
+        for j in range(col):
+            if (i, j) not in seen:
+                seen.add((i, j))
+                output.append(matrix[i][j])
+        
+        #traverse down
+        j = right_column
+        for i in range(r):
+            if (i, j) not in seen:
+                seen.add((i, j))
+                output.append(matrix[i][j])
+        
+        #traverse left
+        i = bottom_row
+        for j in range(col-1, -1, -1):
+            if (i, j) not in seen:
+                seen.add((i, j))
+                output.append(matrix[i][j])
+
+        #traverse up
+        j = left_column
+        for i in range(r-1, -1, -1):
+            if (i, j) not in seen:
+                seen.add((i, j))
+                output.append(matrix[i][j])
+
+        top_row += 1
+        bottom_row -= 1
+        left_column += 1
+        right_column -= 1
+
+    return output      
+        
+print(spiralOrder(matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]])) 
+
+# [1, 2, 3, 4]
+# [5, 6, 7, 8]
+# [9, 10, 11, 12]
+
+# matrix[0][1]
+
     # ** update boundaries
     # ** update current operation
     # ** when working with the row, range is column and vice versa
-        if current_operation == left_to_right:
-            printLeftToRight(matrix, top_row, right_column, left_column)
-            top_row += 1
-            current_operation = top_to_bottom
-        elif current_operation == top_to_bottom:
-            printTopToBottom(matrix, right_column, top_row, bottom_row)
-            right_column = right_column - 1
-            current_operation = right_to_left
-        elif current_operation == right_to_left:
-            printRightToLeft(matrix, bottom_row, right_column, left_column)
-            bottom_row = bottom_row - 1
-            current_operation = bottom_to_top
-        elif current_operation == bottom_to_top:
-            printBottomTop(matrix, left_column, bottom_row, top_row)
-            left_column += 1
-            current_operation = left_to_right
-    
+        # if current_operation == left_to_right:
+
+            # printLeftToRight(matrix, top_row, right_column, left_column)
+            # top_row += 1
+            # current_operation = top_to_bottom
+        # elif current_operation == top_to_bottom:
+        #     printTopToBottom(matrix, right_column, top_row, bottom_row)
+        #     right_column = right_column - 1
+        #     current_operation = right_to_left
+        # elif current_operation == right_to_left:
+        #     printRightToLeft(matrix, bottom_row, right_column, left_column)
+        #     bottom_row = bottom_row - 1
+        #     current_operation = bottom_to_top
+        # elif current_operation == bottom_to_top:
+        #     printBottomTop(matrix, left_column, bottom_row, top_row)
+        #     left_column += 1
+        #     current_operation = left_to_right
+
     # return
 
 # def printLeftToRight(matrix, top_unprinted_row, right_most_unprinted_column, left_most_unprinted_column):
@@ -281,7 +326,7 @@ def spiralOrder(matrix):
 
 
 # print(spiralOrder(matrix = [[1,2,3],[4,5,6],[7,8,9]]))
-print(spiralOrder(matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]))
+
 
 # Input: matrix = 
 # [[1,2,3]
