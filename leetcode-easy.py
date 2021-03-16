@@ -210,21 +210,26 @@ N is greater than 0."""
 # print(firstDuplicate(a = [2, 1, 3, 5, 3, 2]))
 # 3
 
-def rotateImage(a):
-    # return list(zip(*a[::-1]))
+# def rotateImage(a):
+#     # return list(zip(*a[::-1]))
 
-    # return list(zip(*a[::-1]))
-    a.reverse()
-    for r in range(len(a)):
-        for c in range(r):
-            a[r][c], a[c][r] = a[c][r], a[r][c]
-    return a
+#     # return list(zip(*a[::-1]))
+#     a.reverse()
+#     for r in range(len(a)):
+#         for c in range(r):
+#             a[r][c], a[c][r] = a[c][r], a[r][c]
+#     return a
 
-print(rotateImage(a = [[1, 2, 3],
-     [4, 5, 6],
-     [7, 8, 9]]))
+# print(rotateImage(a = [[1, 2, 3],
+#      [4, 5, 6],
+#      [7, 8, 9]]))
 
 # expected = rotateImage(a) =
 #     [[7, 4, 1],
 #      [8, 5, 2],
 #      [9, 6, 3]]
+
+def reverseStr(a):
+    return a.sort()
+
+print(reverseStr(a = [12, 32, 43, 24, 15])
