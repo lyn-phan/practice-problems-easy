@@ -398,79 +398,6 @@ N is greater than 0."""
 # print(versionNum(a = "1.2", b = "1.2"))
 
 
-"""print out the word version of a number
-input = 123
-output = one hundred and twenty three """
-
-# depending on the length of the number
-# if len = 4, 1204
-# " one thousand + two hundred + and four"
-#if len = 5, 12456, 20345,
-#twelve thousand + four hundred + fifty + six
-# if len = 3, 345
-# "three hundred forty five"
-#if len = 2, 36
-#thirty + six
-
-#start with a dictionary
-
-# convert to str and split the number
-#if len(num) is 5,
-# take first two numbers and look up in teens and tens and single_nums, return value + 3rd number is from single_nums + "hundred" , look up 
-# tens + single_nums
-
-
-
-    # ones = {0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 
-    # 10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen", 15: "fifteen", 16: "sixteen", 17: "seventeen", 
-    # 18: "eighteen", 19: "nineteen"}
-    # # tens = {20: "twenty", 30: "thirty", 40: "forty", 50: "fifty", 60: "sixty", 70: "seventy", 80: "eighty", 90: "ninety"}
-
-    #                     tens = 0 / tens = 1 / tens = 2
-onetoOneHundred = {0: ('Zero', 'Ten', 'Hundred'),
-                    1: ('One', 'Eleven'),
-                    2: ('Two', 'Twelve', 'Twenty'),
-                    3: ('Three', 'thirteen', 'Thirty'),
-                    4: ('Four', 'Fourteen', 'Forty'),
-                    5: ('Five', 'Fifteen', 'Fifty'),
-                    6: ('Six', 'Sixteen', 'Sixty'),
-                    7: ('Seven', 'Seventeen', 'Seventy'),
-                    8: ('Eight', 'Eighteen', 'Eighty'),
-                    9: ('Nine', 'Nineteen', 'Ninety')}
-    
-def two_digit(str_num):
-    if len(str_num) == 1:
-        ones = int(str_num[0])
-        tens = 0
-    else:
-        tens = int(str_num[0]) #[tens] = loop up by 0, return value
-        ones = int(str_num[1]) # look at 2nd #, then loop up corresponding value by index
-    
-    if tens == 0 or tens == 1:   # if in the teens, <20
-        return onetoOneHundred[ones][1]
-    else: # 20 or greater
-        word = onetoOneHundred[tens][2]
-        word += ' ' + onetoOneHundred[ones][0]
-        return word
-
-def three_digit(str_num):
-    hundreds = int(str_num[0]) #854, 8 = hundreds
-
-    if hundreds == 0:
-        return two_digit(str_num[-2:])
-    
-    tens_ones = str_num[1:]
-    
-    word = onetoOneHundred[hundreds][0] + ' ' + "hundred"
-    if tens_ones != '00':
-        word += ' ' + two_digit(tens_ones)
-    
-    return word
-
-
-print(three_digit(str_num = '100'))
-
-
 # def three_digit(str_num): 
 #     hundreds = int(str_num[0])
 #     if hundreds == 0:
@@ -480,3 +407,69 @@ print(three_digit(str_num = '100'))
 #     if tens_ones != '00':
 #         word += ' ' + two_digit(tens_ones)
 #     return word
+
+# def containsDuplicates(a):
+#     output = set()
+
+#     for element in a:
+#         if element in output:
+#             return True
+#         else:
+#             output.add(element)
+#     return False
+
+# print(containsDuplicates(a=[2, 1, 3, 1]))
+
+
+#initialize a sum_list to []
+# loop through the longer list first and 1 by 1 add each index in b to index in a.
+# add each summation to list. does value in list equal to V?
+# if yes return True
+# else return False
+
+# def sumOfTwo(a, b, v):
+#     for i in a:
+#         if ((v-i) in b):
+#             return True
+#     return False
+
+# def sumOfTwo(a,b,v):
+
+#     if not a or not b:
+#         return False
+
+#     b = set(b)
+
+#     for x in a:
+#         if (v-x) in b:
+#             return True
+#     return False
+
+# print(sumOfTwo(a= [1,2,3], b=[10,20,30,40], v=42))
+#output is a boolean, True or False
+"""You have an array of integers nums and an array queries, where queries[i] is a pair of indices (0-based). Find the sum of the elements in nums from the indices at queries[i][0] to queries[i][1] (inclusive) for each query, then add all of the sums 
+for all the queries together. Return that number modulo 10^9 + 7"""
+#initialize summation = []
+#iterate through queries, take the first i (0,2)
+# go through nums from range of i
+# add in that range
+# add to list
+# continue until done with queries
+# loop throug summation, add each num and return sum
+
+def sumInRange(nums, queries):
+    results = []
+    summation = 0 
+    prefix_arr = [3, 3, 1, 7, 4, 6]
+
+    # for i in range(len(queries)):
+    #     results = nums[queries[i][0]:queries[i][1]+1]
+    #     summation += sum(results)
+    # return summation
+
+    # for i in range(len(queries)):
+    #     results = prefix_arr[queries[i][0]:queries[i][1]+1]
+    #     summation += sum(results)
+    # return summation
+       
+print(sumInRange(nums= [3, 0, -2, 6, -3, 2], queries = [[0, 2],[2, 5],[0, 5]]))

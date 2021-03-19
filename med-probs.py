@@ -229,57 +229,57 @@ Each diagonal should contain the same set of numbers as before but sorted in asc
 # print(balancedBrackets(('[{}]', '[]')))
 
 # """return a spiral matrix """ 
-def spiralOrder(matrix):
-    r = len(matrix) #length is rows
-    col = len(matrix[0]) #length in columns
-    output = []
+# def spiralOrder(matrix):
+#     r = len(matrix) #length is rows
+#     col = len(matrix[0]) #length in columns
+#     output = []
 
-    # Boundaries:
-    top_row = 0
-    right_column =  col - 1   
-    bottom_row = r - 1    
-    left_column = 0
+#     # Boundaries:
+#     top_row = 0
+#     right_column =  col - 1   
+#     bottom_row = r - 1    
+#     left_column = 0
 
-    seen = set()
+#     seen = set()
 
-    while top_row <= bottom_row and left_column <= right_column:
+#     while top_row <= bottom_row and left_column <= right_column:
         
-        #traverse right
-        i = top_row
-        for j in range(col):
-            if (i, j) not in seen:
-                seen.add((i, j))
-                output.append(matrix[i][j])
+#         #traverse right
+#         i = top_row
+#         for j in range(col):
+#             if (i, j) not in seen:
+#                 seen.add((i, j))
+#                 output.append(matrix[i][j])
         
-        #traverse down
-        j = right_column
-        for i in range(r):
-            if (i, j) not in seen:
-                seen.add((i, j))
-                output.append(matrix[i][j])
+#         #traverse down
+#         j = right_column
+#         for i in range(r):
+#             if (i, j) not in seen:
+#                 seen.add((i, j))
+#                 output.append(matrix[i][j])
         
-        #traverse left
-        i = bottom_row
-        for j in range(col-1, -1, -1):
-            if (i, j) not in seen:
-                seen.add((i, j))
-                output.append(matrix[i][j])
+#         #traverse left
+#         i = bottom_row
+#         for j in range(col-1, -1, -1):
+#             if (i, j) not in seen:
+#                 seen.add((i, j))
+#                 output.append(matrix[i][j])
 
-        #traverse up
-        j = left_column
-        for i in range(r-1, -1, -1):
-            if (i, j) not in seen:
-                seen.add((i, j))
-                output.append(matrix[i][j])
+#         #traverse up
+#         j = left_column
+#         for i in range(r-1, -1, -1):
+#             if (i, j) not in seen:
+#                 seen.add((i, j))
+#                 output.append(matrix[i][j])
 
-        top_row += 1
-        bottom_row -= 1
-        left_column += 1
-        right_column -= 1
+#         top_row += 1
+#         bottom_row -= 1
+#         left_column += 1
+#         right_column -= 1
 
-    return output      
+#     return output      
         
-print(spiralOrder(matrix = ([1,2,3], [4,5,6], [7,8,9]))) 
+# print(spiralOrder(matrix = ([1,2,3], [4,5,6], [7,8,9]))) 
 
 # [1, 2, 3, 4]
 # [5, 6, 7, 8]
@@ -335,3 +335,75 @@ print(spiralOrder(matrix = ([1,2,3], [4,5,6], [7,8,9])))
 # Need to keep track of “boundaries”: top unprinted row, right-most unprinted column, bottom unprinted row, left-most unprinted column
 # Once we finish an operation (eg. left->right), need to update the boundary
 # Output: [1,2,3,6,9,8,7,4,5]
+
+"""print out the word version of a number
+input = 123
+output = one hundred and twenty three """
+
+# depending on the length of the number
+# if len = 4, 1204
+# " one thousand + two hundred + and four"
+#if len = 5, 12456, 20345,
+#twelve thousand + four hundred + fifty + six
+# if len = 3, 345
+# "three hundred forty five"
+#if len = 2, 36
+#thirty + six
+
+#start with a dictionary
+
+# convert to str and split the number
+#if len(num) is 5,
+# take first two numbers and look up in teens and tens and single_nums, return value + 3rd number is from single_nums + "hundred" , look up 
+# tens + single_nums
+
+
+
+    # ones = {0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 
+    # 10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen", 15: "fifteen", 16: "sixteen", 17: "seventeen", 
+    # 18: "eighteen", 19: "nineteen"}
+    # # tens = {20: "twenty", 30: "thirty", 40: "forty", 50: "fifty", 60: "sixty", 70: "seventy", 80: "eighty", 90: "ninety"}
+
+    #                     tens = 0 / tens = 1 / tens = 2
+# onetoOneHundred = {0: ('Zero', 'Ten', 'Hundred'),
+#                     1: ('One', 'Eleven'),
+#                     2: ('Two', 'Twelve', 'Twenty'),
+#                     3: ('Three', 'thirteen', 'Thirty'),
+#                     4: ('Four', 'Fourteen', 'Forty'),
+#                     5: ('Five', 'Fifteen', 'Fifty'),
+#                     6: ('Six', 'Sixteen', 'Sixty'),
+#                     7: ('Seven', 'Seventeen', 'Seventy'),
+#                     8: ('Eight', 'Eighteen', 'Eighty'),
+#                     9: ('Nine', 'Nineteen', 'Ninety')}
+    
+# def two_digit(str_num):
+#     if len(str_num) == 1:
+#         ones = int(str_num[0])
+#         tens = 0
+#     else:
+#         tens = int(str_num[0]) #[tens] = loop up by 0, return value
+#         ones = int(str_num[1]) # look at 2nd #, then loop up corresponding value by index
+    
+#     if tens == 0 or tens == 1:   # if in the teens, <20
+#         return onetoOneHundred[ones][1]
+#     else: # 20 or greater
+#         word = onetoOneHundred[tens][2]
+#         word += ' ' + onetoOneHundred[ones][0]
+#         return word
+
+# def three_digit(str_num):
+#     hundreds = int(str_num[0]) #854, 8 = hundreds
+
+#     if hundreds == 0:
+#         return two_digit(str_num[-2:])
+    
+#     tens_ones = str_num[1:]
+    
+#     word = onetoOneHundred[hundreds][0] + ' ' + "hundred"
+#     if tens_ones != '00':
+#         word += ' ' + two_digit(tens_ones)
+    
+#     return word
+
+
+# print(three_digit(str_num = '100'))
