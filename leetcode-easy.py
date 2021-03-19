@@ -229,7 +229,182 @@ N is greater than 0."""
 #      [8, 5, 2],
 #      [9, 6, 3]]
 
-def reverseStr(a):
-    return a.sort()
+"""truncate char in a string"""
+#create a var for current and for result
+# iterate through a
+# if i != current,
+# add to result, update current
+# resturn result
 
-print(reverseStr(a = [12, 32, 43, 24, 15])
+# def truncateChar(a):
+#     current = ''
+#     result = ''
+
+#     for i in a:
+#         if i != current:
+#             result += i
+#             current = i
+    
+#     return result
+
+
+# print(truncateChar(a="aaabaaabbbe"))
+
+""" reverse digits """
+
+# def reverse_digits(n):
+#     # rev = reversed(str(n))
+#     # return ''.join(rev)
+
+#     convert_to_str = str(n)
+#     rev = convert_to_str[::-1]
+#     return rev
+
+# print(reverse_digits(n = 182))
+
+""" group anagrams """
+# Group anagrams. Write a function that takes in a list of words and prints each word, 
+# with anagrams grouped together. Order doesn’t matter. 
+
+#initialize a dictionary
+# iterate through words
+# sort the words by characters
+# if sorted word in anagrams dict, add word as value
+# if not, add it as a key
+
+#iterate through the values
+#iterate through each word and print that word
+
+# def group_anagrams(words):
+#     anagrams = {}
+
+#     for word in words:
+#         sorted_word = ''.join(sorted(word))
+#         if sorted_word in anagrams:
+#             anagrams[sorted_word].append(word)
+#         else:
+#             anagrams[sorted_word] = [word]
+    
+#     for words in anagrams.values():
+#         for word in words:
+#             print(word)
+
+# print(group_anagrams(words=["cat", "bat", "act", "moon"]))
+
+""" reverse a list in place without using built in functions """
+
+# def rev_list_in_place(lst):
+#     for i in range(len(lst) // 2): #splits the list in half
+#         lst[i], lst[-i -1] = lst[-i -1], lst[i]  #tuple unpacking, swaps the first with the last, second with second to last
+#         print(lst[i])
+#         print(lst[-i])
+#         print(lst[-i -1])
+    
+#     return lst
+
+# print(rev_list_in_place(lst = [12, 15, 21, 18, 2]))
+
+"""Max depth binary tree"""
+
+# def maxDepth(root):
+#     return maxDepthHelper(root, 1)
+
+# def maxDepthHelper(node, depth):
+#     if node.children == 0:
+#         return depth
+    
+#     if node == None:
+#         return 0
+    
+#     leftDepth = maxDepthHelper(node.left, depth+1)
+#     rightDepth = maxDepthHelper(node.right, depth+1)
+
+#     return max(leftDepth, rightDepth)
+
+# print(maxDepth(root = [3,9,20,None,None,15,7]))
+
+
+""" version number comparison """
+
+# The goal of this question is to write a function, in a language of
+# your choice, that will compare two version number strings. Version
+# number strings are strings like "1.2.3" or "2.12.4". They are strings
+# of digits separated by periods. You may assume that the strings do
+# not contain any other characters.
+#
+# The comparison function will take 2 such strings as inputs, and
+# return an integer as the result. If the input strings are "a" and
+# "b", the function should return:
+#
+# 1, if a > b
+# 0, if a == b
+# -1, if a < b
+#
+# The comparison needs to be based on the version numbers. This
+# comparison is defined by considering each component integer of the
+# strings pairwise. Here are some examples:
+#
+# 2.12 > 2.2 (because 12 > 2)
+# 1.2.3 == 1.2.3
+# 1.2.0 == 1.2
+# 1.2.0.0 == 1.2
+# 1.2.0.0.0.0 == 1.2.0.0
+# 1.2.0.1 > 1.2.0.0
+# 1.2.10 < 1.2.12
+# 1.3.2 > 1.2.3
+# 1.2 < 1.2.0.1
+
+#split strings by "."
+# loop through the longer string
+# compare each set of numbers one at a time
+# if a > b, return 1
+# if a == b, return 0
+# else, if a < b return -1
+
+def
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def versionNum(a, b):
+#     split_a = a.split(".")
+#     split_b = b.split(".")
+    
+#     lst_a = list(split_a)
+#     lst_b = list(split_b)
+    
+#     for i in range(max(len(lst_a), len(lst_b))):
+#         if i >= len(lst_b): #if i is too big for lst_b
+#             int_b = 0
+#         else:
+#             int_b = int(lst_b[i])
+            
+#         if i >= len(lst_a): #if i is still too big for lst_a
+#             int_a = 0
+#         else:
+#             int_a = int(lst_a[i])
+        
+            
+#         if int_a > int_b:
+#             return 1
+#         if int_a == int_b:
+#             continue
+#         if int_a < int_b:
+#             return -1
+    
+#     return 0
+
+# print(versionNum('1.2.10', '1.2.12'))
+    

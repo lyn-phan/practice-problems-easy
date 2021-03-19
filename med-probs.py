@@ -228,7 +228,7 @@ Each diagonal should contain the same set of numbers as before but sorted in asc
 
 # print(balancedBrackets(('[{}]', '[]')))
 
-"""return a spiral matrix """ 
+# """return a spiral matrix """ 
 def spiralOrder(matrix):
     r = len(matrix) #length is rows
     col = len(matrix[0]) #length in columns
@@ -240,12 +240,6 @@ def spiralOrder(matrix):
     bottom_row = r - 1    
     left_column = 0
 
-    # Current operation:
-    # left_to_right = 1
-    # top_to_bottom = 2
-    # right_to_left = 3
-    # bottom_to_top = 4
-    # current_operation = left_to_right
     seen = set()
 
     while top_row <= bottom_row and left_column <= right_column:
@@ -285,7 +279,7 @@ def spiralOrder(matrix):
 
     return output      
         
-print(spiralOrder(matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]])) 
+print(spiralOrder(matrix = ([1,2,3], [4,5,6], [7,8,9]))) 
 
 # [1, 2, 3, 4]
 # [5, 6, 7, 8]
@@ -341,7 +335,3 @@ print(spiralOrder(matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]))
 # Need to keep track of “boundaries”: top unprinted row, right-most unprinted column, bottom unprinted row, left-most unprinted column
 # Once we finish an operation (eg. left->right), need to update the boundary
 # Output: [1,2,3,6,9,8,7,4,5]
-
-
-
-

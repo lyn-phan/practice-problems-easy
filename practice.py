@@ -46,19 +46,47 @@ def average_arrays(a):
     #initialize output list (will contain list of lists)
     #initialize list of means
     #iterate through each mini list, take the average of each mini list and add it to list of averages
-    #if mean of list is the same, group those indices together
-    #sort through list in ascending order
-    #add indices with lowest element to output list
-    #return output list
+    # add new loop, initialized lst_item = []
+    # loop through list, and add index of i and values to lst_item list
+    # sort through list item again that is sorted
+    # return just the index
 
-    output_list = []
+    output = []
+    lst_item = []
     list_of_averages = []
-
     
     for i, j in enumerate(a):
-        avg = sum(a[i])/len(a[i])
+        avg = sum(a[i]) / len(a[i])
         list_of_averages.append(avg)
-        for x in list_of_averages:
-            print(x)
+    
+    for i in range(len(list_of_averages)):
+        lst_item.append([list_of_averages[i], i])
+        lst_item.sort()
+    
+    for x in lst_item:
+        output.append(x[1])
+    
+    return output  
+            
             
 print(average_arrays(a = [[3, 3, 4, 2], [4, 4], [4, 0, 3, 3], [2, 3], [3, 3, 3]]))
+#list_of_averages = 3, 4, 2.5, 2.5, 3
+# what we want in output = [2, 3, 0, 4, 1]
+
+
+
+
+
+    # for i, j in enumerate(a):
+    #     avg = sum(a[i])/len(a[i])
+    #     list_of_averages.append(avg)
+    #     # list_of_averages.sort()
+        
+    # for i in range(len(list_of_averages)):
+    #     lst_item.append([list_of_averages[i], i])
+    #     lst_item.sort()
+    
+    # for x in lst_item:
+    #     output.append(x[1])
+    #     print(x)
+    #     print(lst_item) 
