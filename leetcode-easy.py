@@ -356,55 +356,127 @@ N is greater than 0."""
 
 #split strings by "."
 # loop through the longer string
+# convert to int
+# convert to list to iterate
 # compare each set of numbers one at a time
 # if a > b, return 1
 # if a == b, return 0
 # else, if a < b return -1
 
-def
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#edge cases:
+#if a is too long for b, set remaining of b to zero
+# if b is too long for a, set remaining of a to zero
 
 # def versionNum(a, b):
 #     split_a = a.split(".")
 #     split_b = b.split(".")
-    
+
 #     lst_a = list(split_a)
 #     lst_b = list(split_b)
-    
+
 #     for i in range(max(len(lst_a), len(lst_b))):
 #         if i >= len(lst_b): #if i is too big for lst_b
 #             int_b = 0
 #         else:
 #             int_b = int(lst_b[i])
-            
-#         if i >= len(lst_a): #if i is still too big for lst_a
+
+#         if i >= len(lst_a): #if i is too big for lst_a
 #             int_a = 0
 #         else:
 #             int_a = int(lst_a[i])
         
-            
 #         if int_a > int_b:
 #             return 1
-#         if int_a == int_b:
+#         elif int_a == int_b:
 #             continue
-#         if int_a < int_b:
+#         elif int_a < int_b:
 #             return -1
     
 #     return 0
 
-# print(versionNum('1.2.10', '1.2.12'))
+
+# print(versionNum(a = "1.2", b = "1.2"))
+
+
+"""print out the word version of a number
+input = 123
+output = one hundred and twenty three """
+
+# depending on the length of the number
+# if len = 4, 1204
+# " one thousand + two hundred + and four"
+#if len = 5, 12456, 20345,
+#twelve thousand + four hundred + fifty + six
+# if len = 3, 345
+# "three hundred forty five"
+#if len = 2, 36
+#thirty + six
+
+#start with a dictionary
+
+# convert to str and split the number
+#if len(num) is 5,
+# take first two numbers and look up in teens and tens and single_nums, return value + 3rd number is from single_nums + "hundred" , look up 
+# tens + single_nums
+
+
+
+    # ones = {0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine", 
+    # 10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen", 15: "fifteen", 16: "sixteen", 17: "seventeen", 
+    # 18: "eighteen", 19: "nineteen"}
+    # # tens = {20: "twenty", 30: "thirty", 40: "forty", 50: "fifty", 60: "sixty", 70: "seventy", 80: "eighty", 90: "ninety"}
+
+    #                     tens = 0 / tens = 1 / tens = 2
+onetoOneHundred = {0: ('Zero', 'Ten', 'Hundred'),
+                    1: ('One', 'Eleven'),
+                    2: ('Two', 'Twelve', 'Twenty'),
+                    3: ('Three', 'thirteen', 'Thirty'),
+                    4: ('Four', 'Fourteen', 'Forty'),
+                    5: ('Five', 'Fifteen', 'Fifty'),
+                    6: ('Six', 'Sixteen', 'Sixty'),
+                    7: ('Seven', 'Seventeen', 'Seventy'),
+                    8: ('Eight', 'Eighteen', 'Eighty'),
+                    9: ('Nine', 'Nineteen', 'Ninety')}
     
+def two_digit(str_num):
+    if len(str_num) == 1:
+        ones = int(str_num[0])
+        tens = 0
+    else:
+        tens = int(str_num[0]) #[tens] = loop up by 0, return value
+        ones = int(str_num[1]) # look at 2nd #, then loop up corresponding value by index
+    
+    if tens == 0 or tens == 1:   # if in the teens, <20
+        return onetoOneHundred[ones][1]
+    else: # 20 or greater
+        word = onetoOneHundred[tens][2]
+        word += ' ' + onetoOneHundred[ones][0]
+        return word
+
+def three_digit(str_num):
+    hundreds = int(str_num[0]) #854, 8 = hundreds
+
+    if hundreds == 0:
+        return two_digit(str_num[-2:])
+    
+    tens_ones = str_num[1:]
+    
+    word = onetoOneHundred[hundreds][0] + ' ' + "hundred"
+    if tens_ones != '00':
+        word += ' ' + two_digit(tens_ones)
+    
+    return word
+
+
+print(three_digit(str_num = '100'))
+
+
+# def three_digit(str_num): 
+#     hundreds = int(str_num[0])
+#     if hundreds == 0:
+#         return two_digit((str_num[-2:]))
+#     tens_ones = str_num[1:]
+#     word = onetoOneHundred[hundreds][0] + ' ' + 'Hundred'
+#     if tens_ones != '00':
+#         word += ' ' + two_digit(tens_ones)
+#     return word
