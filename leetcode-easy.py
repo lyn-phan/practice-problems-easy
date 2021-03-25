@@ -82,7 +82,7 @@ N is greater than 0."""
 # print(maxMultiple(divisor = 3, bound = 10))
 
 # def fizzBuzz(n):
-#     for i in range(n + 1):
+#     for i in range(1, n + 1):
 #         if (i % 3 == 0) and (i % 5 == 0):
 #             print("FizzBuzz")
 #         elif (i % 3 == 0) and (i % 5 != 0):
@@ -457,10 +457,10 @@ for all the queries together. Return that number modulo 10^9 + 7"""
 # continue until done with queries
 # loop throug summation, add each num and return sum
 
-def sumInRange(nums, queries):
-    results = []
-    summation = 0 
-    prefix_arr = [3, 3, 1, 7, 4, 6]
+# def sumInRange(nums, queries):
+#     results = []
+#     summation = 0 
+#     prefix_arr = [3, 3, 1, 7, 4, 6]
 
     # for i in range(len(queries)):
     #     results = nums[queries[i][0]:queries[i][1]+1]
@@ -472,4 +472,39 @@ def sumInRange(nums, queries):
     #     summation += sum(results)
     # return summation
        
-print(sumInRange(nums= [3, 0, -2, 6, -3, 2], queries = [[0, 2],[2, 5],[0, 5]]))
+# print(sumInRange(nums= [3, 0, -2, 6, -3, 2], queries = [[0, 2],[2, 5],[0, 5]]))
+
+
+#if c in dictionary, return that value
+# if c > v, grab the largest .value, subtract C from that value
+# check to see if c is in dictionary
+# if yes, update coin_count
+# if no, grab the largest value, C - largest_value and keep going
+
+//TODO
+
+# def dispenseChange(c, coin_denominations):
+#     coin_count = {.25: 0, .1: 0, .05: 0, .01: 0}
+#     remaining = c
+
+#     for i in range(len(coin_denominations:))
+#         if remaining in coin_denominations:     # if c is a coin denomination, just update it
+#             coin_denominations[remaining] += 1
+#         elif remaining > i:
+#             remaining = remaining - max(coin_denominations)
+
+      
+# print(dispenseChange(c = .75, coin_denominations = [.25, .10, .05, .01]))
+
+
+#       elif c > v and remainder > 0:
+#           coin_count[k] += 1
+#           if remainder in coin_denominations.values():
+#                 coin_count[k] += 1
+#           else:
+#               change =  remainder - max_coin
+#               coin_count[k] +=1
+#               if remainder in coin_denominations.values():
+#                 coin_count[k] += 1
+#       return coin_count
+#   return coin_count
