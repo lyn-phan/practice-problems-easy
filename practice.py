@@ -146,54 +146,65 @@
     # check to make sure car_id matches, and the close is after the open
     # return True
 
-class MaintenanceEvent(object):
-    def __init__(self, state, car_id, work_type, timestamp):
-        self.state = state # open = True, closed = False
-        self.car_id = car_id # unique, like license plate
-        self.work_type = work_type # “oil”, “fuel”, “wash”, etc.
-        self.timestamp = timestamp # timestamp, like 1030 for 10:30 AM
+# class MaintenanceEvent(object):
+#     def __init__(self, state, car_id, work_type, timestamp):
+#         self.state = state # open = True, closed = False
+#         self.car_id = car_id # unique, like license plate
+#         self.work_type = work_type # “oil”, “fuel”, “wash”, etc.
+#         self.timestamp = timestamp # timestamp, like 1030 for 10:30 AM
 
-def processed_correctly(events):
-    current_services = {}
-    # current_services = {809: {"oil": 1000}}
-    for i in events:
-        if i.state == True: # when service is open, add to current_services
-            current_services[i.car_id] = {} #creating a sub dictionary,adds the subdict to the current_services
-            if i.work_type in current_services[i.car_id]: #if worktype exists already
-                current_services[i.car_id][i.work_type] = i.timestamp # we added work_type and timestamp into sub dict
-        if i.state == False:
-            for j in events: # loop over events a second time, and check if its the same car id and work type
-                if j.state == True and i.car_id == j.car_id and i.work_type == j.work_type: # if so, it has been properly opened / closed, return True
-                    return True
-                elif j.state == True not in current_services: # if there isn't a True for a False
-                    return False
-                elif  j.state == True and i.timestamp > j.timestamp:
-                    return False
-        if i.car_id in current_services:
-            if i.car_id == current_services[i.car_id] and i.work_type == current_services[i.car_id][i.work_type]:
-                return False #check for duplicates           
-    return False
+# def processed_correctly(events):
+#     current_services = {}
+#     # current_services = {809: {"oil": 1000}}
+#     for i in events:
+#         if i.state == True: # when service is open, add to current_services
+#             if i.car_id not in current_services:
+#                 current_services[i.car_id] = {} #creating a sub dictionary,adds the subdict to the current_services
+#             if i.work_type in current_services[i.car_id]: #if worktype exists already
+#                 return False  
+#             elif i.work_type not in current_services:
+#                 current_services[i.car_id][i.work_type] = i.timestamp # open a regular service, if its not in current_ services
 
-assert processed_correctly(
-    [MaintenanceEvent(True, 809, "oil", 1000),
-     MaintenanceEvent(True, 600, "tires",1000),
-     MaintenanceEvent(False, 809, "oil", 1030),
-     MaintenanceEvent(False, 600, "tires",1200)])
-assert not processed_correctly(
-    [MaintenanceEvent(True, 81, "brakes",1000), # not closed
-     MaintenanceEvent(True, 82, "fuel", 1000),
-     MaintenanceEvent(False, 82, "fuel", 1030),
-     MaintenanceEvent(False, 82, "oil", 1200)]) # not opened
-assert not processed_correctly(
-    [MaintenanceEvent(True, 11, "wash", 1000),
-     MaintenanceEvent(True, 12, "filter",1000),
-     MaintenanceEvent(False, 12, "filter",1030),
-     MaintenanceEvent(True, 12, "oil", 1200), # not closed
-     MaintenanceEvent(False, 11, "wash", 1200),
-     MaintenanceEvent(True, 13, "tires", 1200)]) # not closed
-assert not processed_correctly(
-    [MaintenanceEvent(True, 8099, "wash", 800),
-     MaintenanceEvent(True, 6780, "fuel", 830),
-     MaintenanceEvent(True, 8099, "wash", 840), # duplicate
-     MaintenanceEvent(False, 6780, "fuel", 845),
-     MaintenanceEvent(False, 8099, "wash", 1100)])
+
+#         if i.state == False:
+#             if i.car_id not in current_services: #if the service hasn't been opened yet
+#                 return False
+                
+#             elif i.car_id in current_services: 
+#                 if i.work_type in current_services[i.car_id]:
+#                     if i.timestamp < current_services[i.car_id][i.work_type]: # if the service is closed before opening
+#                         return False
+#                     else: # if timestamp is okay, work time is open before the close, we remove from current services
+#                         del current_services[i.car_id][i.work_type]
+#                 else: # if i.work_type is NOT in current_services[i.car_id]. We have a close w/o an open
+#                     return False
+
+#     for j in current_services: #checking for any opened services that are not closed, return False
+#         if len(current_services[j]) != 0:
+#             return False  
+                        
+#     return True
+
+# assert processed_correctly(
+#     [MaintenanceEvent(True, 809, "oil", 1000),
+#      MaintenanceEvent(True, 600, "tires",1000),
+#      MaintenanceEvent(False, 809, "oil", 1030),
+#      MaintenanceEvent(False, 600, "tires",1200)])
+# assert not processed_correctly(
+#     [MaintenanceEvent(True, 81, "brakes",1000), # not closed
+#      MaintenanceEvent(True, 82, "fuel", 1000),
+#      MaintenanceEvent(False, 82, "fuel", 1030),
+#      MaintenanceEvent(False, 82, "oil", 1200)]) # not opened
+# assert not processed_correctly(
+#     [MaintenanceEvent(True, 11, "wash", 1000),
+#      MaintenanceEvent(True, 12, "filter",1000),
+#      MaintenanceEvent(False, 12, "filter",1030),
+#      MaintenanceEvent(True, 12, "oil", 1200), # not closed
+#      MaintenanceEvent(False, 11, "wash", 1200),
+#      MaintenanceEvent(True, 13, "tires", 1200)]) # not closed
+# assert not processed_correctly(
+#     [MaintenanceEvent(True, 8099, "wash", 800),
+#      MaintenanceEvent(True, 6780, "fuel", 830),
+#      MaintenanceEvent(True, 8099, "wash", 840), # duplicate
+#      MaintenanceEvent(False, 6780, "fuel", 845),
+#      MaintenanceEvent(False, 8099, "wash", 1100)])

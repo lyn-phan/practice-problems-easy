@@ -407,3 +407,73 @@ output = one hundred and twenty three """
 
 
 # print(three_digit(str_num = '100'))
+
+# '''' house robber'''
+
+# def houseRobber(nums):
+#     n = len(nums)
+#     if n==0:
+#         return 0;
+#     if n == 1:
+#         return nums[0]
+#     s = [0]*(n+1)
+#     s[1] = nums[0]
+#     s[2] = nums[1]
+        
+#     for i in range(3,n+1):
+#         s[i] = (max(s[i-2],s[i-3]) + nums[i-1])
+#     return max(s[n],s[n-1])
+
+# print(houseRobber(nums=[2,5,7,3]))
+
+#go through each house and decide a) steal from this house and skipping the next or b) skipping the next house
+
+# def houseRobber(nums):
+#     length = len(nums)
+#     if length == 0:
+#         return 0
+#     if length == 1:
+#         return nums[0]
+    
+#     return max(nums)
+
+"""product of array except self""" 
+"""Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i]."""
+
+# Input: nums = [1,2,3,4]
+# Output: [24,12,8,6]
+
+#create a list to track output
+#output [0] = nums[1]*[2]*[3]
+# output [1] = nums[0]*[2]*[3]
+#output[2] = nums[0]*[1]*[3]
+# initialize product to 1
+# iterate right
+# iterate left
+# take in left and right and multiply them, add to results
+
+
+# def productExceptSelf(nums):
+#     results = []
+#     length = len(nums)
+#     right = []
+#     left = []
+
+#     multiplier = 1
+#     for i in range(0, length): # going right
+#         right.append(multiplier)
+#         multiplier = multiplier * nums[i]
+#     # return right [1,3,12,60,360]
+    
+#     multiplier = 1
+#     for i in range(len(nums)-1, -1, -1): # going left
+#         left.append(multiplier)
+#         multiplier = multiplier * nums[i]  
+#     left.reverse() ## [840, 210, 42, 7, 1]
+
+#     results = [left * right for left, right in zip(left, right)]
+#     return results
+
+
+# print(productExceptSelf(nums=[3,4,5,6,7]))
+print(productExceptSelf(nums=[1,2,3,4]))
