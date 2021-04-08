@@ -481,7 +481,7 @@ for all the queries together. Return that number modulo 10^9 + 7"""
 # if yes, update coin_count
 # if no, grab the largest value, C - largest_value and keep going
 
-//TODO
+# //TODO
 
 # def dispenseChange(c, coin_denominations):
 #     coin_count = {.25: 0, .1: 0, .05: 0, .01: 0}
@@ -508,3 +508,94 @@ for all the queries together. Return that number modulo 10^9 + 7"""
 #                 coin_count[k] += 1
 #       return coin_count
 #   return coin_count
+
+"""Maxium Subarray"""
+"""Given an integer array nums, find the contiguous subarray (containing at least one number)
+ which has the largest sum and return its sum."""
+
+#initialize max_so_far is the first index, and the maximum sum so far
+# max_ending_here =  
+
+
+# def maxSubArray(arr):
+#     max_so_far = arr[0]
+#     current_max = 0
+
+#     for i in range(len(arr)):
+#         current_max = current_max + arr[i]
+#         if current_max < 0:
+#             current_max = 0
+        
+#         elif (max_so_far < current_max):
+#             max_so_far = current_max
+    
+#     return max_so_far
+
+# print(maxSubArray(arr=[-2,1,-3,4,-1,2,1,-5,4]))
+#expected output = 6 from [4, -1, 2, 1]
+
+# def maxSubArray(arr):
+#     max_so_far = arr[0]
+#     current_max = arr[0]
+
+#     for i in range(1, len(arr)):
+#         current_max = max(arr[i], current_max + arr[i])
+#         max_so_far = max(current_max, max_so_far)
+    
+#     return max_so_far
+
+# print(maxSubArray(arr=[-2,1,-3,4,-1,2,1,-5,4]))
+
+""" Best time to buy / sell stock
+You are given an array prices where prices[i] is the price of a given stock on the ith day.
+
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0."""
+
+#find the min in the list
+# find the max in the list
+# if min comes before the max, subtract and return profit
+
+
+# def maxProfit(prices):
+#     n = len(prices)
+#     if n < 2:
+#         return 0
+    
+#     max_profit = int()
+#     min_stock = prices[0]
+
+#     for i in prices:
+#         max_profit = max(max_profit, i - min_stock)
+#         min_stock = min(min_stock, i)
+    
+#     return max_profit
+    
+
+# print(maxProfit(prices = [7,1,5,3,6,4]))
+# output = 5
+
+"""Move Zeroes
+
+Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+Note that you must do this in-place without making a copy of the array."""
+
+# def moveZeroes(nums):
+#     """
+#     Do not return anything, modify nums in-place instead.
+#     """
+#     count = 0
+
+#     for i in nums:
+#         if (i==0):
+#             count += 1
+    
+#     for i in range(count):
+#         nums.remove(0)
+#         nums.append(0)
+        
+# print(moveZeroes(nums = [0,1,0,3,12]))
+# Output: [1,3,12,0,0]
+

@@ -208,3 +208,94 @@
 #      MaintenanceEvent(True, 8099, "wash", 840), # duplicate
 #      MaintenanceEvent(False, 6780, "fuel", 845),
 #      MaintenanceEvent(False, 8099, "wash", 1100)])
+
+# Interview question: implement integer division
+# 
+# The goal of this function is to write a function, in a language of
+# your choice, that will take two integer number as inputs, and perform
+# an integer division of these numbers _without_ using the language's
+# built-in division (/) or modulus (%) operators.
+#
+# The function should return both a quotient and a remainder.
+#
+# Examples:
+# divide(3, 2)   -> (1, 1)  # quotient = 1, remainder = 1
+# divide(4, 2)   -> (2, 0)  # quotient = 2, remainder = 0
+# divide(33, 8)  -> (4, 1)  # quotient = 4, remainder = 1
+# divide(-10, 2) -> (-5, 0) # quotient = -5, remainder = 0
+
+# input (33, 8) x, y
+# output (4, 1)
+# y * num = x 
+# num = x/y
+# remainder = x - (num * y)
+
+# minimum is 0
+# maximum is numerator
+
+# loop through range(min, max)
+# i > 0
+# remainder should be < denominator 
+
+# if both positive => positive
+# if both negative => positive
+# if one is negative => negative answer
+
+#how to make it faster? Binary search
+
+def divide(numerator, denominator):
+    
+    answer_should_be_positive = True
+    if (numerator < 0) ^ (denominator < 0):
+        answer_should_be_positive = False
+
+    numerator = abs(numerator)
+    denominator = abs(denominator)
+    
+    minimum, maximum = 0, numerator
+    mid = (minimum + maximum) // 2
+            # 0 + numerator
+        # 50,000,000 (50 mill)
+
+                    # (from 0 to 50,000,000)
+    for i in range(minimum, mid):
+        remainder = numerator - (i * denominator)
+        if n
+        
+print(divide(numerator = -10, denominator = 2))
+print(divide(numerator = 1000, denominator = 5))
+
+range = 0, 500
+i = 1 r = 995
+i = 2 r = 990
+i = 3 r = 985
+i = 4 r = 980
+
+# print(divide(numerator = 100000000, denominator = 1))
+
+
+
+
+
+# def divide(numerator, denominator):
+    
+#     answer_should_be_positive = True
+#     if (numerator < 0) ^ (denominator < 0):
+#         answer_should_be_positive = False
+#     numerator = abs(numerator)
+#     denominator = abs(denominator)
+    
+#     minimum = 0
+#     maximum = numerator    
+    
+#     for i in range(minimum, maximum):
+
+#         remainder = numerator - (i * denominator)
+#         if remainder < denominator:
+#             if answer_should_be_positive is False:
+#                 return (-i, remainder)
+#             return (i, remainder)
+   
+
+# # print(divide(numerator = 10, denominator = 2))
+# print(divide(numerator = 1000000000, denominator = 1))

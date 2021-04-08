@@ -476,4 +476,32 @@ output = one hundred and twenty three """
 
 
 # print(productExceptSelf(nums=[3,4,5,6,7]))
-print(productExceptSelf(nums=[1,2,3,4]))
+# print(productExceptSelf(nums=[1,2,3,4]))
+
+""" 3sum
+Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that 
+i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+Notice that the solution set must not contain duplicate triplets."""
+
+#initialize length
+# track min_diff
+# set target to 0
+# loop through each list, assign i, j, k and add them, assign to current_sum
+# if current_sum < min_diff, current_sum = min_dff
+def threeSums(nums):
+    length = len(nums)
+    target = 0
+    # min_diff = abs(nums[0]+nums[1]+nums[2])
+
+    for i in range(0, length):
+        for j in range(i+1, length):
+            for k in range(j+1, length):
+                diff = (nums[i] + nums[j] + nums[k])
+                if diff == target:
+                    
+                    return nums[i], nums[j], nums[k]
+
+
+
+print(threeSums(nums= [-1,0,1,2,-1,-4]))
+#output = [[-1,-1,2],[-1,0,1]]
