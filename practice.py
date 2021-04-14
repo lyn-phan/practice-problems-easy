@@ -253,23 +253,40 @@ def divide(numerator, denominator):
     denominator = abs(denominator)
     
     minimum, maximum = 0, numerator
-    mid = (minimum + maximum) // 2
-            # 0 + numerator
-        # 50,000,000 (50 mill)
+    guess = (minimum + maximum) // 2 ## this is our guess
 
-                    # (from 0 to 50,000,000)
-    for i in range(minimum, mid):
-        remainder = numerator - (i * denominator)
-        if n
-        
-print(divide(numerator = -10, denominator = 2))
-print(divide(numerator = 1000, denominator = 5))
+    while True:
+        # check if our guess is too big or too small
+        #if mid = guess, figure out what the remainder would be
+        # if guess is too big, the numerator < denominator * mid
+        if numerator < denominator * guess: # if guess is too big
+        # pick a new guess that's smaller. max = current guess
+            maximum = guess
+            guess = (minimum + maximum) // 2
+        #new guess = middle of minimum & new max
 
-range = 0, 500
-i = 1 r = 995
-i = 2 r = 990
-i = 3 r = 985
-i = 4 r = 980
+        if (numerator - guess * denominator) >= denominator:
+            minimum = guess
+            guess = ((minimum + maximum) // 2) + 1
+        # if guess is too small, if (numerator - guess * denominator) >= denominator
+        # pick a bigger guess. set min = midpoint of min and max
+        # new guess is between new min and new max
+
+        if (numerator - guess * denominator) < denominator and (numerator - guess * denominator) >= 0:
+            if answer_should_be_positive is False:
+                return (-guess, (numerator - guess * denominator))
+            return (guess, (numerator - guess * denominator))
+
+
+# print(divide(numerator = -10, denominator = 2)) 
+# 33/8 - guess was 2, 2*8 = 16, 33-16 = 17, 17 > 8
+print(divide(numerator = 1000000000, denominator = 2))
+
+# range = 0, 500
+# i = 1 r = 995
+# i = 2 r = 990
+# i = 3 r = 985
+# i = 4 r = 980
 
 # print(divide(numerator = 100000000, denominator = 1))
 
