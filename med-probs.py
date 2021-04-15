@@ -483,25 +483,74 @@ Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]]
 i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
 Notice that the solution set must not contain duplicate triplets."""
 
+# //TODO//
+
 #initialize length
 # track min_diff
 # set target to 0
 # loop through each list, assign i, j, k and add them, assign to current_sum
 # if current_sum < min_diff, current_sum = min_dff
-def threeSums(nums):
-    length = len(nums)
-    target = 0
-    # min_diff = abs(nums[0]+nums[1]+nums[2])
+# def threeSums(nums):
+#     length = len(nums)
+#     target = 0
+#     # min_diff = abs(nums[0]+nums[1]+nums[2])
 
-    for i in range(0, length):
-        for j in range(i+1, length):
-            for k in range(j+1, length):
-                diff = (nums[i] + nums[j] + nums[k])
-                if diff == target:
+#     for i in range(0, length):
+#         for j in range(i+1, length):
+#             for k in range(j+1, length):
+#                 diff = (nums[i] + nums[j] + nums[k])
+#                 if diff == target:
                     
-                    return nums[i], nums[j], nums[k]
+#                     return nums[i], nums[j], nums[k]
 
 
 
-print(threeSums(nums= [-1,0,1,2,-1,-4]))
-#output = [[-1,-1,2],[-1,0,1]]
+# print(threeSums(nums= [-1,0,1,2,-1,-4]))
+
+"""Count # of Islands
+Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
+
+An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. 
+You may assume all four edges of the grid are all surrounded by water."""
+
+# Start by searching for land by looping over length of grid
+
+def numIslands(grid):
+    #edge case if no grid
+    if not grid:
+        return 0
+
+    count = 0
+# loop over len of grid [0]
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            if grid[i][j] == "1": # this means it is land
+                dfs(grid, i, j)
+                count += 1
+    return count
+
+def dfs(grid, i, j):
+    #dfs looks in every direction for land
+    # base case: within the grid, if i < 0, j < 0 or i >= len(Grid), or j >= len(grid) or grid[i][j] != 1, then return
+    if i < 0 or j < 0 or i >= len(grid) or j >= len(grid) or grid[i][j] != "1":
+        return
+    grid[i][j] = "#"
+    #run DFS in all 4 directions
+    dfs(grid, i+1, j)
+    dfs(grid, i-1, j)
+    dfs(grid, i, j-1)
+    dfs(grid, i, j+1)
+
+print(numIslands(grid = [
+  ["1","1","0","0","0"],
+  ["1","1","0","0","0"],
+  ["0","0","1","0","0"],
+  ["0","0","0","1","1"]
+]))
+
+# input: grid = [
+#   ["1","1","0","0","0"],
+#   ["1","1","0","0","0"],
+#   ["0","0","1","0","0"],
+#   ["0","0","0","1","1"]
+# ]
