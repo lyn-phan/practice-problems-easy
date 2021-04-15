@@ -532,7 +532,7 @@ def numIslands(grid):
 def dfs(grid, i, j):
     #dfs looks in every direction for land
     # base case: within the grid, if i < 0, j < 0 or i >= len(Grid), or j >= len(grid) or grid[i][j] != 1, then return
-    if i < 0 or j < 0 or i >= len(grid) or j >= len(grid) or grid[i][j] != "1":
+    if i < 0 or j < 0 or i >= len(grid) or j >= len(grid[0]) or grid[i][j] != "1":
         return
     grid[i][j] = "#"
     #run DFS in all 4 directions
