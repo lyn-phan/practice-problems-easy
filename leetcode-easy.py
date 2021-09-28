@@ -599,3 +599,178 @@ Note that you must do this in-place without making a copy of the array."""
 # print(moveZeroes(nums = [0,1,0,3,12]))
 # Output: [1,3,12,0,0]
 
+# def sockMerchant(n, ar):
+#     socks = set(ar)
+#     pairs = 0
+
+#     for i in socks:
+#         pairs += ar.count(i) // 2
+    
+#     return pairs
+
+
+
+# n = 7
+# ar = [1, 2, 1, 2, 1, 3, 2]
+# print(sockMerchant(n, ar))
+
+
+
+# def countingValleys(steps, path):
+#     sea_level = 0
+#     valleys = 0
+
+#     for i in path:
+#         if i  == "U":
+#             sea_level += 1
+#         else:
+#             sea_level -= 1
+
+#         if i == "U" and sea_level == 0:
+#             valleys += 1
+
+#     return valleys
+
+
+
+# steps = 8
+# path = "UDDDUDUU"
+# print(countingValleys(steps, path))
+
+# track: jump_count, and i
+# do a while loop until we reach the end of c
+# check if next two numbers is a 0, if so, incrememnt jump and i
+# else if, next number is a 0, increment jump and i
+# return jump
+
+# def jumpingOnClouds(c):
+#     jump_count = 0
+#     i = 0
+
+#     while i < n-1:
+#         if i == 0 and c[i+2] == 0:
+#             jump_count += 1
+#             i += 2
+#         elif i == 0 and c[i+1] == 0:
+#             jump_count += 1
+#             i += 1
+#     return jump_count
+
+# n = 7
+# c = [0, 0, 1, 0, 0, 1, 0]
+# print(jumpingOnClouds(c))
+
+### faster runtime 
+# def jumpingOnClouds(c):
+#     i = count_jumps = 0
+#     length = len(c)
+
+#     while i < length -1:
+#         if i < length - 2 and c[i+2] == 0:
+#             i += 2
+#         else:
+#             i += 1
+#         count_jumps += 1
+#     return count_jumps
+
+# c = [0, 0, 1, 0, 0, 1, 0]
+# print(jumpingOnClouds(c))
+
+
+#what we need to track:
+# target = "a"
+# target_count 
+
+#loop through s and count how many a's, update counter
+# take n / len(s ) to find quotient, also find remainder
+# multiply target count by quotient and update the count
+# do the same with remainder
+
+
+# def repeatedString(s,n):
+#     target = "a"
+#     target_count = 0
+
+#     for i in s:
+#         if i == target:
+#             target_count += 1
+    
+#     quotient = n // len(s)
+#     remainder = n % len(s)
+
+#     target_count = target_count * quotient
+
+#     for i in (s[:remainder]):
+#         if i == target:
+#             target_count += 1
+    
+#     return target_count
+
+
+# s = "abcac"
+# # abaabaabaa
+# n = 10
+# print(repeatedString(s, n))
+
+""" Reverse Linked List """
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+# class Solution:
+#     def reverseList(self, head: ListNode) -> ListNode:
+#         pre, curr = None, None
+
+#         while head:
+#             next = curr.next # save next
+#             curr.next = prev # reverse
+#             prev = curr # advance prev
+#             curr = next # advance curr 
+
+#         return prev
+
+# null -> 1 -> 2 -> 3 -> 4 -> 5
+#     prev   curr   next 
+
+# null <-1 <- 2  3 -> 4 - >5
+
+
+'''Leetcode: Remove Duplicates '''
+'''
+Input: nums = [0,0,1,1,1,2,2,3,3,4]
+Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
+Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores). '''
+
+''' Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears 
+only once. The relative order of the elements should be kept the same.
+
+Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first 
+part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums 
+should hold the final result. It does not matter what you leave beyond the first k elements.
+
+Return k after placing the final result in the first k slots of nums.
+
+Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.'''
+
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        
+
+
+
+
+# if __name__ == '__main__':
+        
+# int[] nums = [...]; // Input array
+# int[] expectedNums = [...]; // The expected answer with correct length
+
+# int k = removeDuplicates(nums); // Calls your implementation
+
+# assert k == expectedNums.length;
+# for (int i = 0; i < k; i++) {
+#     assert nums[i] == expectedNums[i];
+# }
